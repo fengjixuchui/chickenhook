@@ -1,11 +1,41 @@
-[![Build Status](https://dev.azure.com/sascharoth/sascharoth/_apis/build/status/ChickenHook.chickenhook?branchName=develop)](https://dev.azure.com/sascharoth/sascharoth/_build/latest?definitionId=1&branchName=develop)
+|   | Build & Test |
+|---|:-----:|
+|![macOS](docs/res/apple_med.png) **macOS**|[![Build & Test][macOS-build-badge]][macOS-build]| 
+|![Linux](docs/res/linux_med.png) **Linux**|[![Build & Test][linux-build-badge]][linux-build]|
+
+<!--- [Win](docs/res/win_med.png) **Windows**|[![Build & Test][win-build-badge]][win-build] --->
+
+<!--- [win-build-badge]: https://dev.azure.com/sascharoth/sascharoth/_apis/build/status/ChickenHook.chickenhook --->
+<!--- [win-build]: https://dev.azure.com/ChickenHook/ChickenHook/_build?definitionId=1 --->
+
+[macOS-build-badge]: https://dev.azure.com/sascharoth/sascharoth/_apis/build/status/ChickenHook.chickenhook
+[macOS-build]: https://dev.azure.com/ChickenHook/ChickenHook/_build?definitionId=1
+
+[linux-build-badge]: https://dev.azure.com/sascharoth/sascharoth/_apis/build/status/ChickenHook.chickenhook
+[linux-build]: https://dev.azure.com/ChickenHook/ChickenHook/_build?definitionId=1
 
 # ChickenHook 
 <img src="./logo.png" alt="ChickenHook logo" height="200" width="200" />
 
 ## General
 
-Supported platforms: x86, arm64, x86_64 (experimental)
+ChickenHook is a multi architecture hooking framework.
+
+Supported architectures: x86, arm64, x86_64 (experimental)
+Supported platforms: Android, Linux
+
+## Requirements
+
+* ant
+
+### Linux and MacOS
+* cmake
+* make
+
+### Android
+* Android SDK
+* Android NDK 
+* Android Studio (Optional)
 
 ## Usage
 
@@ -50,16 +80,26 @@ example here shows a hook function for libc's open
 
 ## Build
 
-Linux ant and Android gradle...
+Currently ChickenHook can be build for Linux and Android and MacOs.
 
 ### Linux
 ```
-ant configure-linux compile-linux
+ant configure-linux compile-linux test-linux
 ```
 artifacts will be in build/libs/
 
 ### Android
 Use as an Android Studio project or:
 ```
-gradle assemble
+ant configure-android compile-android test-android
 ```
+
+### MacOS
+```
+ant configure-mac compile-mac test-mac install-mac
+```
+artifacts will be in ./artifactsOut
+
+## Include in your Project
+
+WIP
